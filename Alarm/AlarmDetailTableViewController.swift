@@ -10,19 +10,19 @@ import UIKit
 
 class AlarmDetailTableViewController: UITableViewController {
 
+    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var alarmTitle: UITextField!
+    @IBOutlet var enableAlarmButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //MARK: - IBActions
+    
+    @IBAction func enableButtonTapped(sender: AnyObject) {
+    }
+    
+    @IBAction func saveButtonTapped(sender: AnyObject) {
     }
 
     // MARK: - Table view data source
