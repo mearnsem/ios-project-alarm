@@ -64,13 +64,12 @@
 		1A0FB77D1CDD4F07006808D9 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				1A0FB7821CDD4F07006808D9 /* Main.storyboard */,
 				401494FD1CEA810D006C078A /* Model Objects */,
 				401494FC1CEA7C41006C078A /* Controllers */,
 				401494FE1CEA811C006C078A /* Views */,
-				1A0FB77E1CDD4F07006808D9 /* AppDelegate.swift */,
-				1A0FB7821CDD4F07006808D9 /* Main.storyboard */,
-				1A0FB7BE1CE19229006808D9 /* DateHelper.swift */,
 				1A0FB7851CDD4F07006808D9 /* Assets.xcassets */,
+				1A0FB77E1CDD4F07006808D9 /* AppDelegate.swift */,
 				1A0FB7871CDD4F07006808D9 /* LaunchScreen.storyboard */,
 				1A0FB78A1CDD4F07006808D9 /* Info.plist */,
 			);
@@ -81,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				401494FA1CEA7C3A006C078A /* AlarmController.swift */,
+				1A0FB7BE1CE19229006808D9 /* DateHelper.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

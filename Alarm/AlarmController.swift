@@ -13,5 +13,13 @@ class AlarmController {
     
     var alarms = [Alarm]()
     
-    
+    func addAlarm(fireTimeFromMidnight: NSTimeInterval, name: String) {
+        
+    }
+    func updateAlarm(alarm: Alarm, fireTimeFromMidnight: NSTimeInterval, name: String) {
+        
+    }
+    func deleteAlarm(alarm: Alarm) {
+        
+    }
 }

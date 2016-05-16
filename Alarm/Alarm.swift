@@ -22,11 +22,18 @@ class Alarm: Equatable {
     }
     
     var fireDate: NSDate? {
-        return 
+        guard let thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else {
+            return nil
+        }
+        let fireTimeFromThisMorning = NSDate(timeInterval: fireTimeFromMidnight, sinceDate: thisMorningAtMidnight)
+        return fireTimeFromThisMorning
     }
     
     var fireTimeAsString: String {
-        return fireTimeFromMidnight
+        let fireTimeFromMidnight = Int(self.fireTimeFromMidnight)
+        let minutesFromMidnight = fireTimeFromMidnight / 60
+        let hoursFromMidnight = minutesFromMidnight / 60
+        return ("\(hoursFromMidnight):\(minutesFromMidnight)")
     }
 }
 
