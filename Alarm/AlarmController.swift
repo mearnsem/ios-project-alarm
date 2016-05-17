@@ -10,16 +10,26 @@ import Foundation
 
 class AlarmController {
     static let sharedController = AlarmController()
-    
     var alarms = [Alarm]()
     
-    func addAlarm(fireTimeFromMidnight: NSTimeInterval, name: String) {
+    init() {
         
+    }
+    
+    func addAlarm(fireTimeFromMidnight: NSTimeInterval, name: String) -> Alarm {
+        let alarm = Alarm(fireTimeFromMidnight: fireTimeFromMidnight, name: name)
+        alarms.append(alarm)
+        return alarm
     }
     func updateAlarm(alarm: Alarm, fireTimeFromMidnight: NSTimeInterval, name: String) {
-        
+        deleteAlarm(alarm)
+        addAlarm(fireTimeFromMidnight, name: name)
     }
     func deleteAlarm(alarm: Alarm) {
-        
+        guard let indexOfAlarm = alarms.indexOf(alarm) else {
+            return
+        }
+        alarms.removeAtIndex(indexOfAlarm)
     }
+    
 }

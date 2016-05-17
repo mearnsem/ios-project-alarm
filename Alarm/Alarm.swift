@@ -14,11 +14,11 @@ class Alarm: Equatable {
     var enabled: Bool
     var uuid: String
     
-    init(fireTimeFromMidnight: NSTimeInterval, name: String, enabled: Bool, uuid: String) {
+    init(fireTimeFromMidnight: NSTimeInterval, name: String, enabled: Bool = true, uuid: String = NSUUID().UUIDString) {
         self.fireTimeFromMidnight = fireTimeFromMidnight
         self.name = name
-        self.enabled = true
-        self.uuid = NSUUID().UUIDString
+        self.enabled = enabled
+        self.uuid = uuid
     }
     
     var fireDate: NSDate? {
@@ -40,3 +40,10 @@ class Alarm: Equatable {
 func ==(lhs: Alarm, rhs: Alarm) -> Bool {
     return (lhs.fireTimeFromMidnight == rhs.fireTimeFromMidnight && lhs.name == rhs.name && lhs.enabled == rhs.enabled && lhs.uuid == rhs.uuid)
 }
+
+
+
+
+
+
+
