@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol SwitchTableViewCellDelegate: class {
-    func switchCellSwitchValueChanged(cell: SwitchTableViewCell)
-}
-
 class SwitchTableViewCell: UITableViewCell {
 
     //MARK: - IBOutlets & Properties
@@ -45,4 +41,8 @@ class SwitchTableViewCell: UITableViewCell {
         alarmSwitch.on = alarm.enabled
     }
 
+}
+
+protocol SwitchTableViewCellDelegate: class {
+    func switchCellSwitchValueChanged(cell: SwitchTableViewCell)
 }

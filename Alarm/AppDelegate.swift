@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        let localNotifications = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(localNotifications)
         return true
     }
 
@@ -46,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         alert.addAction(action)
         window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
     }
-
+    
 
 }
 

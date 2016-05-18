@@ -9,6 +9,9 @@
 import Foundation
 
 class Alarm: Equatable {
+    private let keyEncode = "keyEncode"
+    private let keyDecode = "keyDecode"
+    
     var fireTimeFromMidnight: NSTimeInterval
     var name: String
     var enabled: Bool
@@ -36,6 +39,7 @@ class Alarm: Equatable {
         let remainingMinutes = minutesLeft - (hoursLeft * 60)
         return String(format: "%02d : %02d AM", arguments: [hoursLeft, remainingMinutes])
     }
+
 }
 
 func ==(lhs: Alarm, rhs: Alarm) -> Bool {
