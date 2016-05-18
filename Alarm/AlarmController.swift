@@ -10,10 +10,17 @@ import Foundation
 
 class AlarmController {
     static let sharedController = AlarmController()
-    var alarms = [Alarm]()
-    
+//    var alarms = [Alarm]()
+    var alarms: [Alarm]
     init() {
-        
+        self.alarms = []
+        self.alarms = mockAlarms()
+    }
+    
+    func mockAlarms() -> [Alarm] {
+        let alarm1 = Alarm(fireTimeFromMidnight: 30421, name: "Wake Up")
+        let alarm2 = Alarm(fireTimeFromMidnight: 21683, name: "Keep Sleeping", enabled: false)
+        return [alarm1, alarm2]
     }
     
     func addAlarm(fireTimeFromMidnight: NSTimeInterval, name: String) -> Alarm {
@@ -30,6 +37,9 @@ class AlarmController {
             return
         }
         alarms.removeAtIndex(indexOfAlarm)
+    }
+    func toggleEnabled(alarm: Alarm) {
+        alarm.enabled = true 
     }
     
 }
