@@ -45,7 +45,7 @@ class AlarmDetailTableViewController: UITableViewController {
         } else {
             AlarmController.sharedController.addAlarm(timeIntervalSinceMidnight, name: title)
         }
-        self.navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewControllerAnimated(true)
     }
     
     func updateWithAlarm(alarm: Alarm) {

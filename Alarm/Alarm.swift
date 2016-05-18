@@ -8,9 +8,11 @@
 
 import Foundation
 
-class Alarm: Equatable {
-    private let keyEncode = "keyEncode"
-    private let keyDecode = "keyDecode"
+class Alarm: Equatable, NSCoding {
+    private let keyFireTimeFromMidnight = "keyFireTimeFromMidnight"
+    private let keyName = "keyName"
+    private let keyEnabled = "keyEnabled"
+    private let keyUUID = "keyUUID"
     
     var fireTimeFromMidnight: NSTimeInterval
     var name: String
@@ -46,6 +48,24 @@ class Alarm: Equatable {
         return String(format: "%02d : %02d AM", arguments: [hours, minutes])
     }
 
+    @objc required init?(coder aDecoder: NSCoder) {
+        guard let fireTimeFromMidnight = aDecoder.decodeObjectForKey(keyFireTimeFromMidnight) as? NSTimeInterval,
+        let name = aDecoder.decodeObjectForKey(keyName) as? String,
+        let enabled = aDecoder.decodeObjectForKey(keyEnabled) as? Bool,
+            let uuid = aDecoder.decodeObjectForKey(keyUUID) as? String else {
+                return nil
+        }
+        self.fireTimeFromMidnight = fireTimeFromMidnight
+        self.name = name
+        self.enabled = enabled
+        self.uuid = uuid
+    }
+    @objc func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(fireTimeFromMidnight, forKey: keyFireTimeFromMidnight)
+        aCoder.encodeObject(name, forKey: keyName)
+        aCoder.encodeObject(enabled, forKey: keyEnabled)
+        aCoder.encodeObject(uuid, forKey: keyUUID)
+    }
 }
 
 func ==(lhs: Alarm, rhs: Alarm) -> Bool {

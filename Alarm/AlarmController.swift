@@ -28,39 +28,61 @@ extension AlarmScheduler {
 }
 
 class AlarmController {
+    private let keyAlarms = "keyAlarms"
     static let sharedController = AlarmController()
-//    var alarms = [Alarm]()
-    var alarms: [Alarm]
+    var alarms = [Alarm]()
+
     init() {
-        self.alarms = []
-        self.alarms = mockAlarms()
-    }
-    
-    func mockAlarms() -> [Alarm] {
-        let alarm1 = Alarm(fireTimeFromMidnight: 30421, name: "Wake Up")
-        let alarm2 = Alarm(fireTimeFromMidnight: 21683, name: "Keep Sleeping", enabled: false)
-        let alarm3 = Alarm(fireTimeFromMidnight: 1800, name: "Go to bed")
-        let alarm4 = Alarm(fireTimeFromMidnight: 68400, name: "Go to dinner")
-        return [alarm1, alarm2, alarm3, alarm4]
     }
     
     func addAlarm(fireTimeFromMidnight: NSTimeInterval, name: String) -> Alarm {
         let alarm = Alarm(fireTimeFromMidnight: fireTimeFromMidnight, name: name)
         alarms.append(alarm)
+        saveToPersistentStorage()
         return alarm
     }
+    
     func updateAlarm(alarm: Alarm, fireTimeFromMidnight: NSTimeInterval, name: String) {
         alarm.fireTimeFromMidnight = fireTimeFromMidnight
         alarm.name = name
+        saveToPersistentStorage()
     }
+    
     func deleteAlarm(alarm: Alarm) {
         guard let indexOfAlarm = alarms.indexOf(alarm) else {
             return
         }
         alarms.removeAtIndex(indexOfAlarm)
     }
+    
     func toggleEnabled(alarm: Alarm) {
         alarm.enabled = !alarm.enabled
     }
     
+    func saveToPersistentStorage() {
+        NSKeyedArchiver.archiveRootObject(self.alarms, toFile: self.filePath(keyAlarms))
+    }
+    
+    func loadFromPersistentStorage() {
+        NSKeyedUnarchiver.unarchiveObjectWithFile(self.filePath(keyAlarms))
+        guard let alarms = NSKeyedUnarchiver.unarchiveObjectWithFile(self.filePath(keyAlarms)) as? [Alarm] else {
+            return
+        }
+        self.alarms = alarms
+    }
+    
+    func filePath(key: String) -> String {
+        let directorySearchReults = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true)
+        let documentsPath = directorySearchReults[0]
+        let entriesPath = documentsPath.stringByAppendingString("/\(key).plist")
+        return entriesPath
+    }
+    
 }
+
+
+
+
+
+
+
