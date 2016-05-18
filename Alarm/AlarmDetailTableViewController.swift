@@ -15,6 +15,7 @@ class AlarmDetailTableViewController: UITableViewController {
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var alarmTitle: UITextField!
     @IBOutlet var enableAlarmButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,15 +28,33 @@ class AlarmDetailTableViewController: UITableViewController {
     //MARK: - IBActions
     
     @IBAction func enableButtonTapped(sender: AnyObject) {
-        
+        guard let alarm = alarm else {
+            return
+        }
+        AlarmController.sharedController.toggleEnabled(alarm)
+        setupView()
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
-        
+        guard let title = alarmTitle.text, let thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else {
+            return
+        }
+        let timeIntervalSinceMidnight = datePicker.date.timeIntervalSinceDate(thisMorningAtMidnight)
+        if let alarm = alarm {
+            AlarmController.sharedController.updateAlarm(alarm, fireTimeFromMidnight: timeIntervalSinceMidnight, name: title)
+        } else {
+            AlarmController.sharedController.addAlarm(timeIntervalSinceMidnight, name: title)
+        }
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func updateWithAlarm(alarm: Alarm) {
+        guard let thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else {
+            return
+        }
+        datePicker.setDate(NSDate(timeInterval: alarm.fireTimeFromMidnight, sinceDate: thisMorningAtMidnight), animated: false)
         alarmTitle.text = alarm.name
+        self.title = alarm.name
     }
     
     func setupView() {
@@ -54,5 +73,4 @@ class AlarmDetailTableViewController: UITableViewController {
             }
         }
     }
-
 }

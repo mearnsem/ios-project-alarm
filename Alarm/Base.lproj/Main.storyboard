@@ -157,19 +157,17 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlM-2u-4TF">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="584" id="UjK-vq-FFL"/>
-                                                        <constraint firstAttribute="height" constant="30" id="Z8F-O1-bS0"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Enable Alarm"/>
+                                                    <state key="normal" title="Enable"/>
                                                     <connections>
                                                         <action selector="enableButtonTapped:" destination="LT3-Hd-zTV" eventType="touchUpInside" id="aVs-zG-Bmr"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="YlM-2u-4TF" firstAttribute="centerX" secondItem="krz-BI-ly5" secondAttribute="centerX" id="qal-8h-8yh"/>
-                                                <constraint firstItem="YlM-2u-4TF" firstAttribute="centerY" secondItem="krz-BI-ly5" secondAttribute="centerY" id="ryV-ue-Dc7"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="YlM-2u-4TF" secondAttribute="leading" id="2Vn-7m-z8Q"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YlM-2u-4TF" secondAttribute="trailing" id="JTl-ZE-zcG"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YlM-2u-4TF" secondAttribute="bottom" constant="-2" id="g8f-K7-RSY"/>
+                                                <constraint firstItem="YlM-2u-4TF" firstAttribute="top" secondItem="krz-BI-ly5" secondAttribute="topMargin" constant="-1" id="hE7-Dp-Oe1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -220,6 +218,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5ic-4g-8mF"/>
+        <segue reference="LHg-gq-QLS"/>
     </inferredMetricsTieBreakers>
 </document>

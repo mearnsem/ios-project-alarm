@@ -51,7 +51,7 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "alarmCell" {
+        if segue.identifier == "toViewAlarm" {
             if let alarmDetailVC = segue.destinationViewController as? AlarmDetailTableViewController {
                 if let alarmCell = sender as? UITableViewCell {
                     if let indexPath = tableView.indexPathForCell(alarmCell) {
