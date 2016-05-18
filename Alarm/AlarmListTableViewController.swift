@@ -9,9 +9,13 @@
 import UIKit
 
 class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -36,9 +40,12 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
     }
 
     func switchCellSwitchValueChanged(cell: SwitchTableViewCell) {
-//        var alarm = AlarmController.sharedController.alarms
-//        AlarmController.sharedController.toggleEnabled(alarm)
-        
+        guard let indexPath = tableView.indexPathForCell(cell) else {
+            return
+        }
+        let alarm = AlarmController.sharedController.alarms[indexPath.row]
+        AlarmController.sharedController.toggleEnabled(alarm)
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 
     // MARK: - Navigation

@@ -40,11 +40,19 @@ class AlarmDetailTableViewController: UITableViewController {
     }
     
     func setupView() {
-        if self.alarm == nil {
-            enableAlarmButton.setTitle("Enable", forState: UIControlState.Normal)
+        if alarm == nil {
+            enableAlarmButton.hidden = true
         } else {
-            enableAlarmButton.setTitle("Disable", forState: UIControlState.Normal)
-            enableAlarmButton.backgroundColor = UIColor.redColor()
+            enableAlarmButton.hidden = false
+            if alarm?.enabled == true {
+                enableAlarmButton.setTitle("Disable", forState: .Normal)
+                enableAlarmButton.backgroundColor = UIColor.redColor()
+                enableAlarmButton.setTitleColor(.whiteColor(), forState: .Normal)
+            } else {
+                enableAlarmButton.setTitle("Enable", forState: .Normal)
+                enableAlarmButton.backgroundColor = UIColor.whiteColor()
+                enableAlarmButton.setTitleColor(.blackColor(), forState: .Normal)
+            }
         }
     }
 

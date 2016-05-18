@@ -48,8 +48,8 @@ class AlarmController {
         return alarm
     }
     func updateAlarm(alarm: Alarm, fireTimeFromMidnight: NSTimeInterval, name: String) {
-        deleteAlarm(alarm)
-        addAlarm(fireTimeFromMidnight, name: name)
+        alarm.fireTimeFromMidnight = fireTimeFromMidnight
+        alarm.name = name
     }
     func deleteAlarm(alarm: Alarm) {
         guard let indexOfAlarm = alarms.indexOf(alarm) else {
@@ -58,7 +58,7 @@ class AlarmController {
         alarms.removeAtIndex(indexOfAlarm)
     }
     func toggleEnabled(alarm: Alarm) {
-        alarm.enabled = true 
+        alarm.enabled = !alarm.enabled
     }
     
 }
