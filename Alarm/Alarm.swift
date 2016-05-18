@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Alarm: Equatable, NSCoding {
+class Alarm: NSObject, NSCoding {
     private let keyFireTimeFromMidnight = "keyFireTimeFromMidnight"
     private let keyName = "keyName"
     private let keyEnabled = "keyEnabled"

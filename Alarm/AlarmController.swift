@@ -33,6 +33,7 @@ class AlarmController {
     var alarms = [Alarm]()
 
     init() {
+        loadFromPersistentStorage()
     }
     
     func addAlarm(fireTimeFromMidnight: NSTimeInterval, name: String) -> Alarm {
@@ -60,7 +61,7 @@ class AlarmController {
     }
     
     func saveToPersistentStorage() {
-        NSKeyedArchiver.archiveRootObject(self.alarms, toFile: self.filePath(keyAlarms))
+        NSKeyedArchiver.archiveRootObject(alarms, toFile: filePath(keyAlarms))
     }
     
     func loadFromPersistentStorage() {

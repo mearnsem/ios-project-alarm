@@ -24,6 +24,10 @@ class AlarmDetailTableViewController: UITableViewController {
         }
         setupView()
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     //MARK: - IBActions
     
