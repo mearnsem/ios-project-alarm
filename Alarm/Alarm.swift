@@ -34,16 +34,14 @@ class Alarm: Equatable {
     
     var fireTimeAsString: String {
         let fireTimeFromMidnight = Int(self.fireTimeFromMidnight)
-        var hours = (fireTimeFromMidnight / 60) / 60
+        let hours = (fireTimeFromMidnight / 60) / 60
         let minutes = (fireTimeFromMidnight / 60) - (hours * 60)
         if hours >= 13 {
             return String(format: "%02d : %02d PM", arguments: [hours - 12, minutes])
         } else if hours == 12 {
             return String(format: "%02d : %02d PM", arguments: [hours, minutes])
-        } else {
-            if hours == 0 {
-                hours = 12
-            }
+        } else if hours == 0 {
+            return String(format: "12 : %02d AM", arguments: [minutes])
         }
         return String(format: "%02d : %02d AM", arguments: [hours, minutes])
     }

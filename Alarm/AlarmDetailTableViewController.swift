@@ -35,7 +35,6 @@ class AlarmDetailTableViewController: UITableViewController {
     }
     
     func updateWithAlarm(alarm: Alarm) {
-        datePicker.date = alarm.fireDate!
         alarmTitle.text = alarm.name
     }
     

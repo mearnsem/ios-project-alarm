@@ -39,7 +39,9 @@ class AlarmController {
     func mockAlarms() -> [Alarm] {
         let alarm1 = Alarm(fireTimeFromMidnight: 30421, name: "Wake Up")
         let alarm2 = Alarm(fireTimeFromMidnight: 21683, name: "Keep Sleeping", enabled: false)
-        return [alarm1, alarm2]
+        let alarm3 = Alarm(fireTimeFromMidnight: 1800, name: "Go to bed")
+        let alarm4 = Alarm(fireTimeFromMidnight: 68400, name: "Go to dinner")
+        return [alarm1, alarm2, alarm3, alarm4]
     }
     
     func addAlarm(fireTimeFromMidnight: NSTimeInterval, name: String) -> Alarm {
