@@ -15,47 +15,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmCell" rowHeight="80" id="DrB-5A-48r" customClass="SwitchTableViewCell" customModule="Alarm" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmCell" rowHeight="60" id="DrB-5A-48r" customClass="SwitchTableViewCell" customModule="Alarm" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DrB-5A-48r" id="Cfp-eP-rtL">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WSP-w8-76n">
-                                            <rect key="frame" x="543" y="24" width="51" height="31"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uU-Sd-0hZ">
+                                            <rect key="frame" x="8" y="8" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WSP-w8-76n">
+                                            <rect key="frame" x="543" y="14" width="51" height="31"/>
                                             <connections>
                                                 <action selector="switchValueChanged:" destination="DrB-5A-48r" eventType="valueChanged" id="je4-4h-c1z"/>
                                             </connections>
                                         </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikU-OA-Xab">
-                                            <rect key="frame" x="8" y="50" width="130" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="130" id="0dK-sP-hG0"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uU-Sd-0hZ">
-                                            <rect key="frame" x="8" y="8" width="130" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="130" id="Qo5-mo-2bU"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikU-OA-Xab">
+                                            <rect key="frame" x="8" y="33" width="38" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="WSP-w8-76n" firstAttribute="centerY" secondItem="Cfp-eP-rtL" secondAttribute="centerY" id="59N-Pt-Ztr"/>
-                                        <constraint firstItem="3uU-Sd-0hZ" firstAttribute="top" secondItem="Cfp-eP-rtL" secondAttribute="topMargin" id="Jgg-IN-wk1"/>
-                                        <constraint firstItem="ikU-OA-Xab" firstAttribute="bottom" secondItem="Cfp-eP-rtL" secondAttribute="bottomMargin" id="LeR-M2-4Yy"/>
-                                        <constraint firstItem="ikU-OA-Xab" firstAttribute="trailing" secondItem="3uU-Sd-0hZ" secondAttribute="trailing" id="OPU-Ok-7vH"/>
-                                        <constraint firstItem="WSP-w8-76n" firstAttribute="trailing" secondItem="Cfp-eP-rtL" secondAttribute="trailingMargin" id="PX3-ec-3hI"/>
-                                        <constraint firstItem="3uU-Sd-0hZ" firstAttribute="leading" secondItem="Cfp-eP-rtL" secondAttribute="leadingMargin" id="d5H-CH-imV"/>
-                                        <constraint firstItem="ikU-OA-Xab" firstAttribute="leading" secondItem="3uU-Sd-0hZ" secondAttribute="leading" id="lGC-go-upG"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="alarmSwitch" destination="WSP-w8-76n" id="o0w-5f-TZ4"/>

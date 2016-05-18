@@ -37,7 +37,7 @@ class Alarm: Equatable {
         let minutesLeft = fireTimeFromMidnight / 60
         let hoursLeft = (fireTimeFromMidnight / 60) / 60
         let remainingMinutes = minutesLeft - (hoursLeft * 60)
-        return String(format: "%02d : %02d AM", arguments: [hoursLeft, remainingMinutes])
+        return String(format: "%02d : %02d", arguments: [hoursLeft, remainingMinutes])
     }
 
 }

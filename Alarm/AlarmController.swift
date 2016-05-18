@@ -6,7 +6,26 @@
 //  Copyright © 2016 DevMountain. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol AlarmScheduler {
+    func scheduleNotification(alarm: Alarm)
+    func cancelLocalNotification(alarm: Alarm)
+}
+
+extension AlarmScheduler {
+    func scheduleNotification(alarm: Alarm) {
+        
+        
+        let localNotification = UILocalNotification()
+        localNotification.alertTitle = "Alarm"
+        localNotification.alertBody = ""
+        localNotification.category = "alarmCell"
+    }
+    func cancelLocalNotification(alarm: Alarm) {
+        
+    }
+}
 
 class AlarmController {
     static let sharedController = AlarmController()

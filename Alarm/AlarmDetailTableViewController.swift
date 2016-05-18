@@ -27,6 +27,7 @@ class AlarmDetailTableViewController: UITableViewController {
     //MARK: - IBActions
     
     @IBAction func enableButtonTapped(sender: AnyObject) {
+        
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
