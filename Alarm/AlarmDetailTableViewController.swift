@@ -53,6 +53,7 @@ class AlarmDetailTableViewController: UITableViewController, AlarmScheduler {
             return
         }
         let timeIntervalSinceMidnight = datePicker.date.timeIntervalSinceDate(thisMorningAtMidnight)
+
         if let alarm = alarm {
             AlarmController.sharedController.updateAlarm(alarm, fireTimeFromMidnight: timeIntervalSinceMidnight, name: title)
             cancelLocalNotification(alarm)

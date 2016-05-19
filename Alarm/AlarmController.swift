@@ -63,6 +63,7 @@ class AlarmController: AlarmScheduler {
         }
         alarms.removeAtIndex(indexOfAlarm)
         cancelLocalNotification(alarm)
+        saveToPersistentStorage()
     }
     
     func toggleEnabled(alarm: Alarm) {

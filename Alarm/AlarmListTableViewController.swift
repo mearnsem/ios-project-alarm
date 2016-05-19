@@ -14,6 +14,11 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let alarms = AlarmController.sharedController.alarms
+        for i in alarms {
+            print(i.fireTimeAsString)
+        }
+        
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
