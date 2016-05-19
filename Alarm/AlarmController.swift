@@ -9,25 +9,33 @@
 import UIKit
 
 protocol AlarmScheduler {
-    func scheduleNotification(alarm: Alarm)
+    func scheduleLocalNotification(alarm: Alarm)
     func cancelLocalNotification(alarm: Alarm)
 }
 
 extension AlarmScheduler {
-    func scheduleNotification(alarm: Alarm) {
-        
-        
-        let localNotification = UILocalNotification()
-        localNotification.alertTitle = "Alarm"
-        localNotification.alertBody = ""
-        localNotification.category = "alarmCell"
+    func scheduleLocalNotification(alarm: Alarm) {
+        let notification = UILocalNotification()
+        notification.fireDate = NSDate(timeIntervalSinceNow: alarm.fireTimeFromMidnight)
+        notification.alertTitle = "Alarm"
+        notification.alertBody = ""
+        notification.category = "alarmCell"
+        notification.repeatInterval = NSCalendarUnit.Day
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
+    
     func cancelLocalNotification(alarm: Alarm) {
-        
+        guard let localNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else {
+            return
+        }
+        let alarmLocalNotifications = localNotifications.filter({$0.category == "alarmCell"})
+        for notification in alarmLocalNotifications {
+            UIApplication.sharedApplication().cancelLocalNotification(notification)
+        }
     }
 }
 
-class AlarmController {
+class AlarmController: AlarmScheduler {
     private let keyAlarms = "keyAlarms"
     static let sharedController = AlarmController()
     var alarms = [Alarm]()
@@ -54,6 +62,7 @@ class AlarmController {
             return
         }
         alarms.removeAtIndex(indexOfAlarm)
+        cancelLocalNotification(alarm)
     }
     
     func toggleEnabled(alarm: Alarm) {

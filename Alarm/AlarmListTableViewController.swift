@@ -8,7 +8,9 @@
 
 import UIKit
 
-class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDelegate {
+class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDelegate, AlarmScheduler {
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,8 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
         AlarmController.sharedController.deleteAlarm(alarm)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
+    
+    //MARK: - Functions
 
     func switchCellSwitchValueChanged(cell: SwitchTableViewCell) {
         guard let indexPath = tableView.indexPathForCell(cell) else {
@@ -46,6 +50,11 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
         let alarm = AlarmController.sharedController.alarms[indexPath.row]
         AlarmController.sharedController.toggleEnabled(alarm)
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        if alarm.enabled == true {
+            scheduleLocalNotification(alarm)
+        } else {
+            cancelLocalNotification(alarm)
+        }
     }
 
     // MARK: - Navigation
