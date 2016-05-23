@@ -8,12 +8,20 @@
 
 import UIKit
 
-class AlarmListTableViewController: UITableViewController {
+class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    // MARK: - Functions
+    
+    func switchCellSwitchValueChanged(cell: SwitchTableViewCell) {
+        guard let alarm = alarm, indexPath = tableView.indexPathForCell(cell) else { return }
+        
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,6 +36,7 @@ class AlarmListTableViewController: UITableViewController {
         cell?.timeLabel.text = alarm.fireTimeAsString
         cell?.nameLabel.text = alarm.name
         cell?.updateWithAlarm(alarm)
+        cell?.delegate = self
         return cell ?? SwitchTableViewCell()
     }
 

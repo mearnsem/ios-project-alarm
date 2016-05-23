@@ -16,10 +16,17 @@ class AlarmDetailTableViewController: UITableViewController {
     @IBOutlet weak var alarmNameLabel: UITextField!
     @IBOutlet weak var enableButton: UIButton!
     
+    var alarm: Alarm?
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let alarm = alarm {
+            updateWithAlarm(alarm)
+        }
+        setupView()
     }
     
     // MARK: - IBActions
@@ -30,6 +37,28 @@ class AlarmDetailTableViewController: UITableViewController {
     @IBAction func saveButtonTapped(sender: AnyObject) {
     }
 
+    // MARK: - Functions
+    
+    func updateWithAlarm(alarm: Alarm) {
+        self.datePicker.date = alarm.fireDate!
+        self.alarmNameLabel.text = alarm.name
+    }
+    
+    func setupView() {
+        if self.alarm == nil {
+            enableButton.hidden = true
+        } else {
+            if self.alarm?.enabled == true {
+                enableButton.setTitle("Disable", forState: .Normal)
+                enableButton.backgroundColor = .redColor()
+                enableButton.setTitleColor(.whiteColor(), forState: .Normal)
+            } else {
+                enableButton.setTitle("Enable", forState: .Normal)
+                enableButton.backgroundColor = .whiteColor()
+                enableButton.setTitleColor(.blackColor(), forState: .Normal)
+            }
+        }
+    }
     
     // MARK: - Table view data source
 
