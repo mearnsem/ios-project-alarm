@@ -23,7 +23,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUj-4f-Hfc">
-                                            <rect key="frame" x="8" y="16" width="42" height="21"/>
+                                            <rect key="frame" x="8" y="16" width="242" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="242" id="eiO-bt-d2r"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -35,7 +38,10 @@
                                             </connections>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktP-sR-61P">
-                                            <rect key="frame" x="8" y="48" width="38" height="18"/>
+                                            <rect key="frame" x="8" y="48" width="242" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="242" id="ZaS-ib-Vtc"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -47,7 +53,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="ktP-sR-61P" secondAttribute="bottom" constant="6" id="Pja-4W-pa6"/>
                                         <constraint firstItem="pUj-4f-Hfc" firstAttribute="top" secondItem="NID-O6-Jeu" secondAttribute="topMargin" constant="8" id="UqH-2o-ULa"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="pUj-4f-Hfc" secondAttribute="leading" id="Wvm-WG-6SW"/>
-                                        <constraint firstItem="pUj-4f-Hfc" firstAttribute="leading" secondItem="ktP-sR-61P" secondAttribute="trailing" constant="-38" id="Yrl-fO-HWe"/>
+                                        <constraint firstItem="pUj-4f-Hfc" firstAttribute="leading" secondItem="ktP-sR-61P" secondAttribute="trailing" constant="-242" id="Yrl-fO-HWe"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pZf-8R-ifv" secondAttribute="trailing" id="aR1-7u-h5q"/>
                                     </constraints>
                                 </tableViewCellContentView>

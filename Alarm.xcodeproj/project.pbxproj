@@ -16,6 +16,7 @@
 		407262031CF39FB300A0344D /* AlarmListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407262021CF39FB300A0344D /* AlarmListTableViewController.swift */; };
 		407262051CF3A06800A0344D /* AlarmDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407262041CF3A06800A0344D /* AlarmDetailTableViewController.swift */; };
 		407262071CF3A0A700A0344D /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407262061CF3A0A700A0344D /* SwitchTableViewCell.swift */; };
+		4072620B1CF3A47E00A0344D /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072620A1CF3A47E00A0344D /* AlarmController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		407262021CF39FB300A0344D /* AlarmListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmListTableViewController.swift; sourceTree = "<group>"; };
 		407262041CF3A06800A0344D /* AlarmDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDetailTableViewController.swift; sourceTree = "<group>"; };
 		407262061CF3A0A700A0344D /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		4072620A1CF3A47E00A0344D /* AlarmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +64,43 @@
 		1A0FB77D1CDD4F07006808D9 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				407262061CF3A0A700A0344D /* SwitchTableViewCell.swift */,
-				407262041CF3A06800A0344D /* AlarmDetailTableViewController.swift */,
 				1A0FB7821CDD4F07006808D9 /* Main.storyboard */,
-				407262001CF39EF300A0344D /* Alarm.swift */,
-				407262021CF39FB300A0344D /* AlarmListTableViewController.swift */,
-				1A0FB7BE1CE19229006808D9 /* DateHelper.swift */,
+				407262081CF3A3F100A0344D /* Model Objects */,
+				4072620C1CF3A48100A0344D /* Controllers */,
+				407262091CF3A3FD00A0344D /* Views */,
 				1A0FB7851CDD4F07006808D9 /* Assets.xcassets */,
 				1A0FB77E1CDD4F07006808D9 /* AppDelegate.swift */,
 				1A0FB7871CDD4F07006808D9 /* LaunchScreen.storyboard */,
 				1A0FB78A1CDD4F07006808D9 /* Info.plist */,
 			);
 			path = Alarm;
+			sourceTree = "<group>";
+		};
+		407262081CF3A3F100A0344D /* Model Objects */ = {
+			isa = PBXGroup;
+			children = (
+				407262001CF39EF300A0344D /* Alarm.swift */,
+				1A0FB7BE1CE19229006808D9 /* DateHelper.swift */,
+			);
+			name = "Model Objects";
+			sourceTree = "<group>";
+		};
+		407262091CF3A3FD00A0344D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				407262061CF3A0A700A0344D /* SwitchTableViewCell.swift */,
+				407262041CF3A06800A0344D /* AlarmDetailTableViewController.swift */,
+				407262021CF39FB300A0344D /* AlarmListTableViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4072620C1CF3A48100A0344D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4072620A1CF3A47E00A0344D /* AlarmController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +180,7 @@
 				407262051CF3A06800A0344D /* AlarmDetailTableViewController.swift in Sources */,
 				407262011CF39EF300A0344D /* Alarm.swift in Sources */,
 				407262071CF3A0A700A0344D /* SwitchTableViewCell.swift in Sources */,
+				4072620B1CF3A47E00A0344D /* AlarmController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
