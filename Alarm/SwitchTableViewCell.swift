@@ -16,7 +16,9 @@ class SwitchTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var alarmSwitch: UISwitch!
     
-    weak var delegate = SwitchTableViewCellDelegate?()
+    weak var delegate: SwitchTableViewCellDelegate?
+    var alarm: Alarm?
+    
     
     // MARK: - IBActions
     
@@ -25,6 +27,7 @@ class SwitchTableViewCell: UITableViewCell {
     }
 
     func updateWithAlarm(alarm: Alarm) {
+        self.alarm = alarm
         self.timeLabel.text = alarm.fireTimeAsString
         self.nameLabel.text = alarm.name
         self.alarmSwitch.on = alarm.enabled

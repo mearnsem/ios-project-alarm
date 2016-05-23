@@ -38,7 +38,7 @@
                                             </connections>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktP-sR-61P">
-                                            <rect key="frame" x="8" y="48" width="242" height="18"/>
+                                            <rect key="frame" x="19" y="45" width="242" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="242" id="ZaS-ib-Vtc"/>
                                             </constraints>
@@ -48,12 +48,12 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="leadingMargin" secondItem="ktP-sR-61P" secondAttribute="leading" id="6Qp-eh-56Y"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="ktP-sR-61P" secondAttribute="leading" constant="-11" id="6Qp-eh-56Y"/>
                                         <constraint firstItem="pZf-8R-ifv" firstAttribute="centerY" secondItem="NID-O6-Jeu" secondAttribute="centerY" id="7ag-8n-Obz"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="ktP-sR-61P" secondAttribute="bottom" constant="6" id="Pja-4W-pa6"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ktP-sR-61P" secondAttribute="bottom" constant="9" id="Pja-4W-pa6"/>
                                         <constraint firstItem="pUj-4f-Hfc" firstAttribute="top" secondItem="NID-O6-Jeu" secondAttribute="topMargin" constant="8" id="UqH-2o-ULa"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="pUj-4f-Hfc" secondAttribute="leading" id="Wvm-WG-6SW"/>
-                                        <constraint firstItem="pUj-4f-Hfc" firstAttribute="leading" secondItem="ktP-sR-61P" secondAttribute="trailing" constant="-242" id="Yrl-fO-HWe"/>
+                                        <constraint firstItem="pUj-4f-Hfc" firstAttribute="leading" secondItem="ktP-sR-61P" secondAttribute="trailing" constant="-253" id="Yrl-fO-HWe"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pZf-8R-ifv" secondAttribute="trailing" id="aR1-7u-h5q"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -90,6 +90,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <gestureRecognizers/>
                         <sections>
                             <tableViewSection id="T0g-Wr-KBO">
                                 <cells>
@@ -173,6 +174,7 @@
                         <connections>
                             <outlet property="dataSource" destination="3D9-Pp-1Ix" id="tWE-q9-c6h"/>
                             <outlet property="delegate" destination="3D9-Pp-1Ix" id="bf4-HF-Grp"/>
+                            <outletCollection property="gestureRecognizers" destination="X5i-u3-PLL" appends="YES" id="FAj-DV-xZm"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="mmV-15-Dky">
@@ -189,6 +191,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mTp-fx-6AI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="X5i-u3-PLL">
+                    <connections>
+                        <action selector="userTappedView:" destination="3D9-Pp-1Ix" id="Pqk-nH-mz3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1786" y="446"/>
         </scene>
@@ -212,6 +219,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="m9g-0S-bJP"/>
+        <segue reference="8W1-Ct-fvQ"/>
     </inferredMetricsTieBreakers>
 </document>
