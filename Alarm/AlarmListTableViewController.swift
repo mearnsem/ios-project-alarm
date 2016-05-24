@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDelegate {
+class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDelegate, AlarmScheduler {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,11 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
     func switchCellSwitchValueChanged(cell: SwitchTableViewCell) {
         guard let alarm = cell.alarm, indexPath = tableView.indexPathForCell(cell) else { return }
         AlarmController.sharedController.toggleEnabled(alarm)
+        if alarm.enabled {
+            scheduleLocalNotification(alarm)
+        } else {
+            cancelLocalNotification(alarm)
+        }
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     
@@ -46,6 +51,7 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
         if editingStyle == .Delete {
             let alarm = AlarmController.sharedController.alarms[indexPath.row]
             AlarmController.sharedController.deleteAlarm(alarm)
+            cancelLocalNotification(alarm)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }

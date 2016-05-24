@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        let alert = UIAlertController(title: "Time's up", message: nil, preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Alarm", message: nil, preferredStyle: .Alert)
         let action = UIAlertAction(title: "Dismiss", style: .Cancel, handler: nil)
         alert.addAction(action)
         window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
