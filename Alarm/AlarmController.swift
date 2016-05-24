@@ -9,28 +9,29 @@
 import Foundation
 
 class AlarmController {
-    static let sharedController = AlarmController()
     
+    static let sharedController = AlarmController()
     var alarms = [Alarm]()
     
     init() {
-        self.alarms = mockAlarms()
+//        self.alarms = mockAlarms()
     }
     
-    func mockAlarms() -> [Alarm] {
-        let alarm1 = Alarm(fireTimeFromMidnight: 28800, name: "Wake Up")
-        let alarm2 = Alarm(fireTimeFromMidnight: 45000, name: "Lunch Time", enabled: false)
-        return [alarm1, alarm2]
-    }
+//    func mockAlarms() -> [Alarm] {
+//        let alarm1 = Alarm(fireTimeFromMidnight: 28800, name: "Wake Up")
+//        let alarm2 = Alarm(fireTimeFromMidnight: 45000, name: "Lunch Time", enabled: false)
+//        return [alarm1, alarm2]
+//    }
     
-    func addAlarm(fireTimeFromMidnight: NSTimeInterval, name: String) {
+    func addAlarm(fireTimeFromMidnight: NSTimeInterval, name: String) -> Alarm {
         let alarm = Alarm(fireTimeFromMidnight: fireTimeFromMidnight, name: name)
         alarms.append(alarm)
+        return alarm
     }
     
     func updateAlarm(alarm: Alarm, fireTimeFromMidnight: NSTimeInterval, name: String) {
-        deleteAlarm(alarm)
-        addAlarm(fireTimeFromMidnight, name: name)
+        alarm.fireTimeFromMidnight = fireTimeFromMidnight
+        alarm.name = name
     }
     
     func deleteAlarm(alarm: Alarm) {

@@ -13,7 +13,11 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
     // MARK: - Functions
     
     func switchCellSwitchValueChanged(cell: SwitchTableViewCell) {
@@ -30,12 +34,12 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as? SwitchTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as? SwitchTableViewCell ?? SwitchTableViewCell()
 
         let alarm = AlarmController.sharedController.alarms[indexPath.row]
-        cell?.updateWithAlarm(alarm)
-        cell?.delegate = self
-        return cell ?? SwitchTableViewCell()
+        cell.updateWithAlarm(alarm)
+        cell.delegate = self
+        return cell
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -59,8 +63,4 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
             }
         }
     }
-    
-
-    
-
 }

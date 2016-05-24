@@ -174,7 +174,6 @@
                         <connections>
                             <outlet property="dataSource" destination="3D9-Pp-1Ix" id="tWE-q9-c6h"/>
                             <outlet property="delegate" destination="3D9-Pp-1Ix" id="bf4-HF-Grp"/>
-                            <outletCollection property="gestureRecognizers" destination="X5i-u3-PLL" appends="YES" id="FAj-DV-xZm"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="mmV-15-Dky">
@@ -191,11 +190,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mTp-fx-6AI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="X5i-u3-PLL">
-                    <connections>
-                        <action selector="userTappedView:" destination="3D9-Pp-1Ix" id="Pqk-nH-mz3"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1786" y="446"/>
         </scene>

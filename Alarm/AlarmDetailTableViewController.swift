@@ -29,50 +29,41 @@ class AlarmDetailTableViewController: UITableViewController {
         setupView()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        tableView.reloadData()
-    }
-    
     // MARK: - IBActions
     
     @IBAction func enableButtonTapped(sender: AnyObject) {
-        if let alarm = alarm {
-            AlarmController.sharedController.toggleEnabled(alarm)
-        }
+        guard let alarm = alarm else { return }
+        AlarmController.sharedController.toggleEnabled(alarm)
+        setupView()
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
-        let timeInterval = DateHelper.thisMorningAtMidnight?.timeIntervalSinceDate(datePicker.date)
+        guard let title = alarmNameLabel.text, thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else { return }
+        let timeInterval = datePicker.date.timeIntervalSinceDate(thisMorningAtMidnight)
         if let alarm = alarm {
-            guard let name = alarmNameLabel.text, timeInterval = timeInterval else { return }
-            AlarmController.sharedController.updateAlarm(alarm, fireTimeFromMidnight: timeInterval, name: name)
+            AlarmController.sharedController.updateAlarm(alarm, fireTimeFromMidnight: timeInterval, name: title)
         } else {
-            guard let name = alarmNameLabel.text, timeInterval = timeInterval else {return}
-            AlarmController.sharedController.addAlarm(timeInterval, name: name)
+            let alarm = AlarmController.sharedController.addAlarm(timeInterval, name: title)
+            self.alarm = alarm
         }
-        navigationController?.popViewControllerAnimated(true)
-        
+        self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    @IBAction func userTappedView(sender: AnyObject) {
-        alarmNameLabel.resignFirstResponder()
-    }
-
 
     // MARK: - Functions
     
     func updateWithAlarm(alarm: Alarm) {
         guard let thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else { return }
-        datePicker.setDate(NSDate(timeInterval: alarm.fireTimeFromMidnight, sinceDate: thisMorningAtMidnight), animated: true)
+        datePicker.setDate(NSDate(timeInterval: alarm.fireTimeFromMidnight, sinceDate: thisMorningAtMidnight), animated: false)
         alarmNameLabel.text = alarm.name
+        self.title = alarm.name
     }
     
     func setupView() {
-        if self.alarm == nil {
+        if alarm == nil {
             enableButton.hidden = true
         } else {
-            if self.alarm?.enabled == true {
+            enableButton.hidden = false
+            if alarm?.enabled == true {
                 enableButton.setTitle("Disable", forState: .Normal)
                 enableButton.backgroundColor = .redColor()
                 enableButton.setTitleColor(.whiteColor(), forState: .Normal)
