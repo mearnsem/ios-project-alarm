@@ -66,19 +66,21 @@ protocol AlarmScheduler {
 
 extension AlarmScheduler {
     func scheduleLocalNotification(alarm: Alarm) {
-        
+        guard let thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else {return}
         let localNotification = UILocalNotification()
-        localNotification.alertTitle = "Wake Up"
-        localNotification.alertBody = "Quit sleepin, get to work!"
-        localNotification.fireDate?.timeIntervalSinceDate(DateHelper.tomorrowMorningAtMidnight!)
-        localNotification.category = "localNotificationTag"
+        localNotification.alertTitle = "Alarm"
+        localNotification.alertBody = alarm.name
+        localNotification.fireDate = NSDate(timeInterval: alarm.fireTimeFromMidnight, sinceDate: thisMorningAtMidnight)
+        localNotification.category = alarm.uuid
         localNotification.repeatInterval = NSCalendarUnit.Day
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     func cancelLocalNotification(alarm: Alarm) {
         guard let localNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else {return}
-        let alarmLocalNotifications = localNotifications.filter({$0.category == "localNotificationTag"})
-        UIApplication.sharedApplication().cancelLocalNotification(alarmLocalNotifications)
+        let alarmLocalNotifications = localNotifications.filter({$0.category == alarm.uuid})
+        for alarm in alarmLocalNotifications {
+            UIApplication.sharedApplication().cancelLocalNotification(alarm)
+        }
     }
 }
 

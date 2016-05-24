@@ -9,9 +9,10 @@
 import UIKit
 
 class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDelegate, AlarmScheduler {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(animated: Bool) {

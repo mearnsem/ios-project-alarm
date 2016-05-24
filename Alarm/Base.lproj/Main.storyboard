@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Alarm List Table View Controller-->
+        <!--Alarm-->
         <scene sceneID="a2c-Kw-ru2">
             <objects>
                 <tableViewController id="WJo-G0-T3g" customClass="AlarmListTableViewController" customModule="Alarm" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,11 +23,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUj-4f-Hfc">
-                                            <rect key="frame" x="8" y="16" width="242" height="21"/>
+                                            <rect key="frame" x="8" y="14" width="242" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="242" id="eiO-bt-d2r"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -38,7 +38,7 @@
                                             </connections>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktP-sR-61P">
-                                            <rect key="frame" x="19" y="45" width="242" height="18"/>
+                                            <rect key="frame" x="8" y="49" width="242" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="242" id="ZaS-ib-Vtc"/>
                                             </constraints>
@@ -48,12 +48,12 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="leadingMargin" secondItem="ktP-sR-61P" secondAttribute="leading" constant="-11" id="6Qp-eh-56Y"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="ktP-sR-61P" secondAttribute="leading" id="6Qp-eh-56Y"/>
                                         <constraint firstItem="pZf-8R-ifv" firstAttribute="centerY" secondItem="NID-O6-Jeu" secondAttribute="centerY" id="7ag-8n-Obz"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="ktP-sR-61P" secondAttribute="bottom" constant="9" id="Pja-4W-pa6"/>
-                                        <constraint firstItem="pUj-4f-Hfc" firstAttribute="top" secondItem="NID-O6-Jeu" secondAttribute="topMargin" constant="8" id="UqH-2o-ULa"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ktP-sR-61P" secondAttribute="bottom" constant="5" id="Pja-4W-pa6"/>
+                                        <constraint firstItem="pUj-4f-Hfc" firstAttribute="top" secondItem="NID-O6-Jeu" secondAttribute="topMargin" constant="6" id="UqH-2o-ULa"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="pUj-4f-Hfc" secondAttribute="leading" id="Wvm-WG-6SW"/>
-                                        <constraint firstItem="pUj-4f-Hfc" firstAttribute="leading" secondItem="ktP-sR-61P" secondAttribute="trailing" constant="-253" id="Yrl-fO-HWe"/>
+                                        <constraint firstItem="pUj-4f-Hfc" firstAttribute="leading" secondItem="ktP-sR-61P" secondAttribute="trailing" constant="-242" id="Yrl-fO-HWe"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pZf-8R-ifv" secondAttribute="trailing" id="aR1-7u-h5q"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -70,7 +70,7 @@
                             <outlet property="delegate" destination="WJo-G0-T3g" id="tB5-sS-VxD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tEK-3f-PmF">
+                    <navigationItem key="navigationItem" title="Alarm" id="tEK-3f-PmF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="owf-5O-fAm">
                             <connections>
                                 <segue destination="3D9-Pp-1Ix" kind="show" identifier="toAddAlarm" id="m9g-0S-bJP"/>
