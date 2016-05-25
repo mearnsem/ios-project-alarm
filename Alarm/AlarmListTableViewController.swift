@@ -12,7 +12,6 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,7 +36,6 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AlarmController.sharedController.alarms.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as? SwitchTableViewCell ?? SwitchTableViewCell()
