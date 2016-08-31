@@ -27,8 +27,8 @@ class Alarm: NSObject, NSCoding {
     
     var fireTimeAsString: String {
         let fireTimeFromMidnight = Int(self.fireTimeFromMidnight)
-        var hours = fireTimeFromMidnight/60/60
-        let minutes = (fireTimeFromMidnight - (hours*60*60))/60
+        var hours = fireTimeFromMidnight / 60 / 60
+        let minutes = (fireTimeFromMidnight - (hours * 60 * 60)) / 60
         if hours >= 13 {
             return String(format: "%2d:%02d PM", arguments: [hours - 12, minutes])
         } else if hours >= 12 {
