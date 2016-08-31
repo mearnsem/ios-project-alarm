@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class AlarmDetailTableViewController: UITableViewController, AlarmScheduler {
 
@@ -15,6 +16,7 @@ class AlarmDetailTableViewController: UITableViewController, AlarmScheduler {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var alarmNameLabel: UITextField!
     @IBOutlet weak var enableButton: UIButton!
+    @IBOutlet weak var playlistLabel: UILabel!
     
     var alarm: Alarm?
     
@@ -56,6 +58,10 @@ class AlarmDetailTableViewController: UITableViewController, AlarmScheduler {
         }
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    @IBAction func chooseMusic(sender: AnyObject) {
+        self.presentPicker(sender)
+    }
 
     // MARK: - Functions
     
@@ -82,5 +88,43 @@ class AlarmDetailTableViewController: UITableViewController, AlarmScheduler {
             }
         }
     }
+    
+    func presentPicker(sender: AnyObject) {
+        let picker = MPMediaPickerController(mediaTypes: .Music)
+        picker.showsCloudItems = false
+        picker.delegate = self
+        picker.allowsPickingMultipleItems = true
+        picker.modalPresentationStyle = .Popover
+        picker.preferredContentSize = CGSizeMake(500, 600)
+        self.presentViewController(picker, animated: true, completion: nil)
+        
+//        if let pop = picker.popoverPresentationController {
+//            if let button = sender as? UIBarButtonItem {
+//                pop.barButtonItem = button
+//            }
+//        }
+    }
 
 }
+
+extension AlarmDetailTableViewController: MPMediaPickerControllerDelegate {
+    func mediaPicker(mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+        print("Picked Music")
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func mediaPickerDidCancel(mediaPicker: MPMediaPickerController) {
+        print("Cancel")
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+extension AlarmDetailTableViewController: UIBarPositioningDelegate {
+    func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
+        return .TopAttached
+    }
+}
+
+
+
+

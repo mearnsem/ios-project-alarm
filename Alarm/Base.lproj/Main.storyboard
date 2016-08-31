@@ -152,6 +152,42 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pz-t1-PWt">
+                                                    <rect key="frame" x="8" y="11" width="584" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoq-iT-Bf5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                                    <connections>
+                                                        <action selector="chooseMusic:" destination="3D9-Pp-1Ix" eventType="touchUpInside" id="AtT-jV-DcH"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Pz-t1-PWt" firstAttribute="leading" secondItem="pbX-rA-QS5" secondAttribute="leadingMargin" id="ABR-lg-no1"/>
+                                                <constraint firstItem="Qoq-iT-Bf5" firstAttribute="leading" secondItem="pbX-rA-QS5" secondAttribute="leadingMargin" constant="-8" id="HR9-QR-bDn"/>
+                                                <constraint firstItem="Qoq-iT-Bf5" firstAttribute="top" secondItem="pbX-rA-QS5" secondAttribute="topMargin" constant="-8" id="Ijd-ZD-ow1"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Qoq-iT-Bf5" secondAttribute="trailing" constant="-8" id="Ntz-1y-2wf"/>
+                                                <constraint firstItem="4Pz-t1-PWt" firstAttribute="top" secondItem="pbX-rA-QS5" secondAttribute="topMargin" constant="3" id="YDj-gV-FLn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4Pz-t1-PWt" secondAttribute="trailing" id="g9j-gB-nAX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Qoq-iT-Bf5" secondAttribute="bottom" constant="-8" id="jfZ-IY-V42"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4Pz-t1-PWt" secondAttribute="bottom" constant="3" id="tKg-5f-gBG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="TnX-he-d67">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gKy-VE-cp9">
+                                        <rect key="frame" x="0.0" y="480" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gKy-VE-cp9" id="9M8-Xv-Xdh">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxd-dP-0DI">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <state key="normal" title="Enable Alarm"/>
@@ -161,10 +197,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="mxd-dP-0DI" secondAttribute="bottom" constant="-2" id="Ahi-kR-k5w"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="mxd-dP-0DI" secondAttribute="trailing" id="KbR-C6-QDb"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="mxd-dP-0DI" secondAttribute="leading" id="rK6-GT-Y0i"/>
-                                                <constraint firstItem="mxd-dP-0DI" firstAttribute="top" secondItem="pbX-rA-QS5" secondAttribute="topMargin" constant="-1" id="rbU-0q-wgN"/>
+                                                <constraint firstItem="mxd-dP-0DI" firstAttribute="leading" secondItem="9M8-Xv-Xdh" secondAttribute="leadingMargin" id="BHJ-eI-XkI"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mxd-dP-0DI" secondAttribute="bottom" constant="-2" id="Hy0-7a-adW"/>
+                                                <constraint firstItem="mxd-dP-0DI" firstAttribute="trailing" secondItem="9M8-Xv-Xdh" secondAttribute="trailingMargin" id="Wmi-nP-cX5"/>
+                                                <constraint firstItem="mxd-dP-0DI" firstAttribute="top" secondItem="9M8-Xv-Xdh" secondAttribute="topMargin" constant="-1" id="ipE-F6-CqL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -187,6 +223,7 @@
                         <outlet property="alarmNameLabel" destination="A6b-oD-e4f" id="7iH-mb-LqS"/>
                         <outlet property="datePicker" destination="qBv-vt-vaY" id="DdV-Dx-1xt"/>
                         <outlet property="enableButton" destination="mxd-dP-0DI" id="ayF-2G-H9h"/>
+                        <outlet property="playlistLabel" destination="4Pz-t1-PWt" id="Qsy-9c-0Zj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mTp-fx-6AI" userLabel="First Responder" sceneMemberID="firstResponder"/>

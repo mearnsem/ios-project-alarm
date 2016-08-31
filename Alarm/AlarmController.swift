@@ -62,6 +62,7 @@ class AlarmController {
 protocol AlarmScheduler {
     func scheduleLocalNotification(alarm: Alarm)
     func cancelLocalNotification(alarm: Alarm)
+    func presentAlertController(alarm: Alarm)
 }
 
 extension AlarmScheduler {
@@ -75,12 +76,23 @@ extension AlarmScheduler {
         localNotification.repeatInterval = NSCalendarUnit.Day
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
+    
     func cancelLocalNotification(alarm: Alarm) {
         guard let localNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else {return}
         let alarmLocalNotifications = localNotifications.filter({$0.category == alarm.uuid})
         for alarm in alarmLocalNotifications {
             UIApplication.sharedApplication().cancelLocalNotification(alarm)
         }
+    }
+    
+    func presentAlertController(alarm: Alarm) {
+        let alertController = UIAlertController(title: "\(alarm.name)", message: nil, preferredStyle: .Alert)
+        
+        let snoozeAction = UIAlertAction(title: "Snooze", style: .Default, handler: nil)
+        alertController.addAction(snoozeAction)
+        
+        let jamAction = UIAlertAction(title: "Jam On", style: .Cancel, handler: nil)
+        alertController.addAction(jamAction)
     }
 }
 
